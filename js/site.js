@@ -13,11 +13,52 @@ function getValues()
 
     //5. validate that "fizzValue" and "buzzValue" are actually Numbers.
     if (Number.isInteger(fizzValue) && Number.isInteger(buzzValue)){
-        let fbData = fizzBuzz(fizzValue,buzzValue);
+        let fbData = fizzBuzzC(fizzValue,buzzValue);
         displayData(fbData);
     } else {
         alert("You must enter integers for the fizz and buzz numbers.");
     }
+}
+
+function fizzBuzzB(value1, value2) {
+    let returnArray = [];
+    let Fizz = false;
+    let Buzz = false;
+
+    for (let i =   1; i <=  100; i++ )    {
+
+        Fizz = i % value1 == 0;
+        Buzz = i % value2 == 0;
+
+        switch(true){
+
+            case Fizz && Buzz:{
+                returnArray.push('FizzBuzz');
+                break;
+            }
+            case Fiz:{
+                returnArray.push('Fizz');
+                break;
+            }
+            case Buzz:{
+                returnArray.push('Buzz')
+                break;
+            }
+            default:{
+                returnArray.push(i);
+                break;
+            }
+        }
+    }
+    return returnArray;
+}
+function fizzBuzzC(value1, value2) {
+    let returnArray = []; 
+    for (let i = 1; i <= 100 ; i++) {
+        let value = ((i % value1 == 0 ? 'Fizz': '') + (i % value2 == 0 ? 'Buzz' : '') || i );
+        returnArray.push(value);
+    }
+    return returnArray;
 }
 
 //Traditional Solve Fizz Buzz with a for loop
